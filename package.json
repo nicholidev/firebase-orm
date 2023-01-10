@@ -1,0 +1,31 @@
+{
+  "name": "firebase-orm",
+  "version": "1.0.1",
+  "description": "firebase store query builder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholidev/firebase-orm.git"
+  },
+  "keywords": [
+    "firebase",
+    "firebase store",
+    "query"
+  ],
+  "author": "Nicholi Jin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nicholidev/firebase-orm/issues"
+  },
+  "homepage": "https://github.com/nicholidev/firebase-orm#readme",
+  "dependencies": {
+    "firebase": "^9.15.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}
