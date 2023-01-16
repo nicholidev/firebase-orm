@@ -1,12 +1,8 @@
-import * as admin from "firebase-admin";
 import { addId, getOperator, getSort } from "../utils";
 import { FilterType, Pagination, SortType } from "./read.type";
 
-const firestore = admin.firestore();
-
-
 export const find = async (
-    where: string,
+    collection: any,
     filter: FilterType[] = [],
     sort: SortType[] = [],
     pagination: Pagination = {
@@ -15,7 +11,7 @@ export const find = async (
     }
 ) =>
 {
-    let query: any = firestore.collection(where);
+    let query: any = collection;
 
     // Apply Filter
     filter.map((i) =>
@@ -23,8 +19,8 @@ export const find = async (
         query = query.where(i.key, getOperator(i), i.val);
     });
 
-    const total: number = await query.count().get().data().count;
-
+    const countRef: any = await query.count().get();
+    const total: number = await countRef.data().count;
     // Apply Sort
     sort.map((i) =>
     {
@@ -34,7 +30,7 @@ export const find = async (
     // Apply Page
     if (pagination.page > 0)
     {
-        query.startAt((query.page-1) * query.limit);
+        query.startAt((query.page - 1) * query.limit);
     }
 
     // Apply Limit

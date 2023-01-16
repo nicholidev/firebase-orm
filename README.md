@@ -23,16 +23,18 @@ or
 ```
 yarn add firebase-orm
 ```
+
+## How to use
+
 ### find query
 
 example:
 ```js
 import { firebaseStore, FILTER_OPR, SORT } from "firebase-orm";
-import * as functions from "firebase-functions";
 
 const getProducts = functions.https.onRequest(async (req, res) => {
     const data = await firebaseStore.find(
-        "products", // Collection name (Table name). this is required field
+        collection, // const collection = firestore.collection("products")
         [
             {
                 key: "xxxx",
