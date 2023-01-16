@@ -19,8 +19,8 @@ export const find = async (
         query = query.where(i.key, getOperator(i), i.val);
     });
 
-    let total: any = await query.count().get();
-    total = total.data().count;
+    const countRef: any = await query.count().get();
+    const total: number = await countRef.data().count;
     // Apply Sort
     sort.map((i) =>
     {
