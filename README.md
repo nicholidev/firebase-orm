@@ -1,4 +1,4 @@
-# Firebase ORM
+<h1 align="center">Firebase ORM</h1>
 
 <p align="center">
     <a href="https://www.npmjs.com/package/firebase-orm">
