@@ -31,7 +31,6 @@ yarn add firebase-orm
 example:
 ```js
 import { firebaseStore, FILTER_OPR, SORT } from "firebase-orm";
-import * as functions from "firebase-functions";
 
 const getProducts = functions.https.onRequest(async (req, res) => {
     const data = await firebaseStore.find(
