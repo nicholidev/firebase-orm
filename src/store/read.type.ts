@@ -1,7 +1,3 @@
-export type WhereTypes = {
-    collection: string;
-}
-
 export enum FILTER_OPR {
     EQUAL = "eq",
     LESS = "ls",
