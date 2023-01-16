@@ -1,7 +1,5 @@
-import { find, findOne } from "./read";
-
+import * as firebaseStore from "./store";
 
 export {
-    find,
-    findOne
-}
+    firebaseStore,
+};
