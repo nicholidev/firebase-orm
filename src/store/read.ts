@@ -1,21 +1,21 @@
 import * as admin from "firebase-admin";
 import { addId, getOperator, getSort } from "../utils";
-import { FilterType, Pagination, SortType, WhereTypes } from "./read.type";
+import { FilterType, Pagination, SortType } from "./read.type";
 
 const firestore = admin.firestore();
 
 
 export const find = async (
-    where: WhereTypes,
+    where: string,
     filter: FilterType[] = [],
     sort: SortType[] = [],
     pagination: Pagination = {
-        page: 1,
+        page: -1,
         limit: -1,
     }
 ) =>
 {
-    let query: any = firestore.collection(where.collection);
+    let query: any = firestore.collection(where);
 
     // Apply Filter
     filter.map((i) =>
