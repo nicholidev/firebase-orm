@@ -23,6 +23,9 @@ or
 ```
 yarn add firebase-orm
 ```
+
+## How to use
+
 ### find query
 
 example:
