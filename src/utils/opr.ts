@@ -1,6 +1,6 @@
-import { FilterType } from "../store/read.type";
+import { FilterTypeItem } from "../read.type";
 
-export const getOperator = ({ opr }: FilterType) =>
+export const getOperator = ({ opr }: FilterTypeItem) =>
 {
     const operatorMap: any = {
         "eq": "==",
