@@ -1,6 +1,6 @@
-import { SortType } from "../store/read.type";
+import { SORT, SortTypeItem } from "../read.type";
 
-export const getSort = ({ val }: SortType) =>
+export const getSort = (sort: SortTypeItem | SORT | "asc" | "desc") =>
 {
     const sortMap: any = {
         "-1": "desc",
@@ -10,24 +10,52 @@ export const getSort = ({ val }: SortType) =>
     const keys = ["-1", "1"];
     const values = ["asc", "desc"];
 
-    if (!val)
+    if (!sort)
     {
         return undefined;
     }
 
-    if (keys.includes(val))
+    if (typeof sort === "string" || typeof sort === "number")
     {
-        return sortMap[val];
-    }
-    else
-    {
-        if (values.includes(val))
+        if (keys.includes(sort.toString().toLowerCase()))
         {
-            return val;
+            return sortMap[sort.toString().toLowerCase()];
         }
         else
         {
+            if (values.includes(sort.toString().toLowerCase()))
+            {
+                return sort.toString().toLowerCase();
+            }
+            else
+            {
+                return undefined;
+            }
+        }
+    }
+    else
+    {
+        const val: string | number = sort.val;
+
+        if (!val)
+        {
             return undefined;
+        }
+
+        if (keys.includes(val.toString().toLowerCase()))
+        {
+            return sortMap[val.toString().toLowerCase()];
+        }
+        else
+        {
+            if (values.includes(val.toString().toLowerCase()))
+            {
+                return val.toString().toLowerCase();
+            }
+            else
+            {
+                return undefined;
+            }
         }
     }
 };

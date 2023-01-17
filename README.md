@@ -28,33 +28,26 @@ yarn add firebase-orm
 
 ### find query
 
-example:
+Usage:
 ```js
-import { firebaseStore, FILTER_OPR, SORT } from "firebase-orm";
+import fireOrm from "firebase-orm";
+import * as admin from "firebase-admin";
+
+admin.initializeApp();
+const firestore = admin.firestore();
 
 const getProducts = functions.https.onRequest(async (req, res) => {
-    const data = await firebaseStore.find(
+    const collection = firestore.collection("products");    
+    
+    const data = await fireOrm.find(
         collection, // const collection = firestore.collection("products")
-        [
-            {
-                key: "xxxx",
-                opr: FILTER_OPR.EQUAL, // or simply text "==" | "<" | "<=" | ">" | ">=" | "!=" | "array-contains" | "array-contains-any" | "in" | "not-in"
-                val: "xxxxxx"
-            },
-            {
-                key: "price",
-                opr: FILTER_OPR.LESS_EQUAL,
-                val: 123
-            },
-            //...
-        ], // FILTERs default is []
-        [
-            {
-                key: "name",
-                value: SORT.ASC // or simply "asc", "desc", "-1", "1" or you may not define default will be "asc".
-            },
-            //...
-        ], // SORTs default is []
+        {
+            productType: "sales",
+            salesPosition: "us"
+        }, // FILTER refer filter types
+        {
+            id: "asc"    
+        }, // SORTs refer sort types
         {
             limit: 10, // default is -1 and it will return max 
             page: 1 // default is -1 and it will start from first item
