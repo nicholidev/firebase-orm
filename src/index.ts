@@ -1,6 +1,7 @@
 import { find, findOne, findOneById } from "./read";
 import { FILTER_OPR, SORT } from "./read.type";
 import { create, createMany } from "./write";
+import { update } from "./update";
 
 const fireOrm = {
     find,
@@ -8,6 +9,7 @@ const fireOrm = {
     findOneById,
     create,
     createMany,
+    update,
     FILTER_OPR,
     SORT,
 };
@@ -19,6 +21,7 @@ export {
     findOneById,
     create,
     createMany,
+    update,
     FILTER_OPR,
     SORT,
 };
