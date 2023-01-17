@@ -11,8 +11,8 @@ import {
 // FIND
 export const find = async (
     collection: any,
-    filter: FilterType,
-    sort: SortType,
+    filter: FilterType = {},
+    sort: SortType = {},
     pagination: Pagination = {
         page: -1,
         limit: -1,

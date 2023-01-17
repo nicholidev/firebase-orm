@@ -7,7 +7,7 @@
   "types": "./lib/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "lint": "eslint --ext .js,.ts .",
+    "lint": "eslint --ext .js,.ts src --fix",
     "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
     "prepublish": "npm run build"
   },
