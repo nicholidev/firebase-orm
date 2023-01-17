@@ -1,13 +1,13 @@
 {
   "name": "firebase-orm",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "firebase store query builder",
   "main": "./lib/cjs/index.js",
   "module": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "lint": "eslint --ext .js,.ts .",
+    "lint": "eslint --ext .js,.ts src --fix",
     "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
     "prepublish": "npm run build"
   },
