@@ -103,7 +103,7 @@ export const findOneById = async (collection: any, id: string) =>
 
 
 // APPLY FILTER
-const applyFilter = (query: any, filter: FilterType) =>
+export const applyFilter = (query: any, filter: FilterType) =>
 {
     if (Array.isArray(filter))
     {
@@ -138,8 +138,9 @@ const applyFilter = (query: any, filter: FilterType) =>
     return query;
 };
 
+
 // APPLY SORT
-const applySort = (query: any, sort: SortType) =>
+export const applySort = (query: any, sort: SortType) =>
 {
     if (Array.isArray(sort))
     {
@@ -170,14 +171,15 @@ const applySort = (query: any, sort: SortType) =>
 
 
 // COUNT total
-const countTotal = async (query: any): Promise<number> =>
+export const countTotal = async (query: any): Promise<number> =>
 {
     const countRef: any = await query.count().get();
     return countRef.data().count;
 };
 
+
 // APPLY Pagination
-const applyPagination = (query: any, pagination: Pagination) =>
+export const applyPagination = (query: any, pagination: Pagination) =>
 {
     // Apply Page
     if (pagination.page > 0)

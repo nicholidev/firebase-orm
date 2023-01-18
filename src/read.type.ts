@@ -1,4 +1,5 @@
-export enum FILTER_OPR {
+export enum FILTER_OPR
+{
     EQUAL = "eq",
     LESS = "ls",
     LESS_EQUAL = "els",
@@ -11,7 +12,8 @@ export enum FILTER_OPR {
     NOT_IN = "nin",
 }
 
-export enum SORT {
+export enum SORT
+{
     ASC = 1,
     DESC = -1,
 }
